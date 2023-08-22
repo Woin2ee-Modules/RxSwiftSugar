@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "BDB7E02D-AA92-4B75-A762-D4E72ADBDA67",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "RxUtility",
+          "name" : "RxUtility"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "RxUtilityTests",
+        "name" : "RxUtilityTests"
+      }
+    }
+  ],
+  "version" : 1
+}

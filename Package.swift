@@ -23,6 +23,10 @@ let package = Package(
         ),
         .testTarget(
             name: "RxUtilityTests",
-            dependencies: ["RxUtility"]),
+            dependencies: [
+                "RxUtility",
+                .product(name: "RxTest", package: "RxSwift")
+            ]
+        ),
     ]
 )
