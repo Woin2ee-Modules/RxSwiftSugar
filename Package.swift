@@ -7,7 +7,7 @@ let package = Package(
     name: "RxUtility",
     products: [
         .library(
-            name: "RxUtility",
+            name: "RxUtility-Dynamic",
             type: .dynamic,
             targets: ["RxUtility"]),
     ],
