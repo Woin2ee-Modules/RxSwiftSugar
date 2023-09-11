@@ -8,6 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "RxUtility",
+            type: .dynamic,
             targets: ["RxUtility"]),
     ],
     dependencies: [
