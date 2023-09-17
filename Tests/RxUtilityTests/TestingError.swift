@@ -8,7 +8,7 @@
 import Foundation
 
 enum TestingError: Error {
-    
+
     case testingError
-    
+
 }

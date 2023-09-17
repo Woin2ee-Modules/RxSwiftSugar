@@ -19,7 +19,7 @@ func XCTAssertRecordedElements(_ stream: [Recorded<Event<Void>>], _ elements: [V
         #endif
         return
     }
-    
+
     let equatableStream = stream.map { event in
         switch event.value {
         case .next:
@@ -29,7 +29,7 @@ func XCTAssertRecordedElements(_ stream: [Recorded<Event<Void>>], _ elements: [V
         }
     }
     let equatableElements = elements.map { true }
-    
+
     XCTAssertRecordedElements(equatableStream, equatableElements, file: file, line: line)
 }
 
@@ -57,13 +57,13 @@ func XCTAssertContainsRecordedElement(_ stream: [Recorded<Event<Void>>], _ eleme
             }
         }()
     )
-    
+
     #if os(Linux)
     XCTAssert(equatableStream.contains(equatableElement))
     #else
     XCTAssert(equatableStream.contains(equatableElement), file: file, line: line)
     #endif
-    
+
     if !equatableStream.contains(equatableElement) {
         print("In stream :")
         print(stream)

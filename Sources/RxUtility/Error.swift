@@ -8,7 +8,7 @@
 import Foundation
 
 enum RxUtilityError: Error {
-    
+
     case nilValue(objectType: Any.Type)
-    
+
 }
