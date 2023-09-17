@@ -26,7 +26,8 @@ let package = Package(
             name: "RxUtilityTests",
             dependencies: [
                 "RxUtility",
-                .product(name: "RxTest", package: "RxSwift")
+                .product(name: "RxTest", package: "RxSwift"),
+                .product(name: "RxBlocking", package: "RxSwift")
             ]
         ),
     ]

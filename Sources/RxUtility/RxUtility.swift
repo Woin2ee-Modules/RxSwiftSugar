@@ -38,6 +38,10 @@ extension ObservableType {
         return self.map { _ in }
     }
     
+    public func mapToAny() -> Observable<Any> {
+        return self.map { $0 as Any }
+    }
+    
     public func doOnNext(_ block: ((Element) throws -> Void)?) -> Observable<Element> {
         return self.do(onNext: block)
     }
@@ -80,6 +84,10 @@ extension PrimitiveSequenceType where Trait == SingleTrait {
     
     public func mapToVoid() -> PrimitiveSequence<Trait, Void> {
         return self.map { _ in }
+    }
+    
+    public func mapToAny() -> PrimitiveSequence<Trait, Any> {
+        return self.map { $0 as Any }
     }
     
     public func doOnSuccess(_ block: ((Element) throws -> Void)?) -> PrimitiveSequence<Trait, Element> {

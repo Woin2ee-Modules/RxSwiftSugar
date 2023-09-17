@@ -1,5 +1,6 @@
 @testable import RxUtility
 import RxSwift
+import RxBlocking
 import RxTest
 import XCTest
 
@@ -65,6 +66,34 @@ final class RxUtilityTests: XCTestCase {
         }
         // Assert
         XCTAssertContainsRecordedElement(result.events, Recorded.next(errorEmitTime, ()))
+    }
+    
+    func test_mapToAnyAtSingle() throws {
+        // Arrange
+        let singleSequence: Single<Int> = .just(3)
+        
+        // Act
+        let anyElement = try singleSequence
+            .mapToAny()
+            .toBlocking()
+            .single()
+        
+        // Assert
+        XCTAssertEqual(anyElement as? Int, 3)
+    }
+    
+    func test_mapToAnyAtObservableType() throws {
+        // Arrange
+        let observableSequence: Observable<Int> = .just(3)
+        
+        // Act
+        let anyElement = try observableSequence
+            .mapToAny()
+            .toBlocking()
+            .single()
+            
+        // Assert
+        XCTAssertEqual(anyElement as? Int, 3)
     }
     
 }

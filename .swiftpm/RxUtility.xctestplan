@@ -9,15 +9,7 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : {
-      "targets" : [
-        {
-          "containerPath" : "container:",
-          "identifier" : "RxUtility",
-          "name" : "RxUtility"
-        }
-      ]
-    }
+
   },
   "testTargets" : [
     {
