@@ -2,7 +2,7 @@
 
 This library supports convenient operators of RxSwift / RxCooca.
 
-The list of supported operators is <a href="#SupportedOperators">here</a>.
+The list of supported operators is <a href="#supported-operators">here</a>.
 
 ## Requirements
 - Xcode 12.x
@@ -18,7 +18,7 @@ dependencies: [
 ]
 ```
 
-<h2 id="SupportedOperators">Supported operators</h2>
+<h2 id="supported-operators">Supported operators</h2>
 
 ```swift
 func asDriverOnErrorJustComplete() -> Driver<Element>
