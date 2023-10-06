@@ -14,7 +14,7 @@ The list of supported operators is <a href="#supported-operators">here</a>.
 
 ```
 dependencies: [
-    .package(url: "https://github.com/woin2ee/RxUtility.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/Woin2ee-Modules/RxUtility.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
@@ -61,9 +61,18 @@ array
     .map(\.first)
     .unwrapOrThrow() // If nil, throw error.
 ```
+
+### Completable
+
 ```swift
 func andThenJustNext() -> Single<Void>
 
-delete() // Return Completable
+signOut() // Will return `CompletableEvent.completed`
     .andThenJustNext() // Use it if want `next` event.
+```
+```swift
+func catchAndThenJustNext() -> Single<Void>
+
+delete() // Will return `CompletableEvent.error`
+    .catchAndThenJustNext() // Use it if want `next` event.
 ```
