@@ -95,5 +95,16 @@ final class RxUtilityTests: XCTestCase {
         // Assert
         XCTAssertEqual(anyElement as? Int, 3)
     }
+    
+    func test_catchAndThenJustNext() throws {
+        // Arrange
+        let completableSequence: Completable = .error(TestingError.testingError)
+        
+        // Act & Assert
+        try completableSequence
+            .catchAndThenJustNext()
+            .toBlocking()
+            .single()
+    }
 
 }

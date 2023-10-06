@@ -113,5 +113,11 @@ extension PrimitiveSequenceType where Trait == CompletableTrait, Element == Neve
     public func andThenJustNext() -> Single<Void> {
         return self.andThen(.just(()))
     }
+    
+    public func catchAndThenJustNext() -> Single<Void> {
+        return self.primitiveSequence
+            .catch { _ in return .empty() }
+            .andThen(Single<Void>.just(()))
+    }
 
 }
