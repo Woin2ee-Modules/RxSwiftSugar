@@ -1,4 +1,5 @@
-@testable import RxUtility
+import RxUtility
+
 import RxSwift
 import RxBlocking
 import RxTest
@@ -95,11 +96,11 @@ final class RxUtilityTests: XCTestCase {
         // Assert
         XCTAssertEqual(anyElement as? Int, 3)
     }
-    
+
     func test_catchAndThenJustNext() throws {
         // Arrange
         let completableSequence: Completable = .error(TestingError.testingError)
-        
+
         // Act & Assert
         try completableSequence
             .catchAndThenJustNext()
@@ -107,4 +108,33 @@ final class RxUtilityTests: XCTestCase {
             .single()
     }
 
+    func test_unwrapOrThrow() {
+        let observable: Observable<Int?> = .of(1, 2, nil, 4, 5)
+        let result = observable
+            .unwrapOrThrow()
+            .toBlocking()
+            .materialize()
+
+        switch result {
+        case .completed:
+            XCTFail("Expected result to complete with error, but result was successful.")
+        case .failed(let elements, _):
+            XCTAssertEqual(elements, [1, 2])
+        }
+    }
+
+    func test_unwrapOrIgnore() {
+        let observable: Observable<Int?> = .of(1, 2, nil, 4, 5)
+        let result = observable
+            .unwrapOrIgnore()
+            .toBlocking()
+            .materialize()
+
+        switch result {
+        case .completed(let elements):
+            XCTAssertEqual(elements, [1, 2, 4, 5])
+        case .failed(_, let error):
+            XCTFail("Expected result to complete without error, but received \(error).")
+        }
+    }
 }
