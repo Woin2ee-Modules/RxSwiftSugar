@@ -24,7 +24,7 @@ extension ObservableType where Element: ExpressibleByNilLiteral {
 
     /// Unwraps elements or throws error if nil elements.
     public func unwrapOrThrow<Result>() -> Observable<Result> where Element == Result? {
-        return self.map { try RxUtility.unwrapOrThrow($0) }
+        return self.map { try RxSwiftSugar.unwrapOrThrow($0) }
     }
 
     /// Unwraps elements and skips nil elements. Equivalent to apply `compactMap` operator without `transform`.

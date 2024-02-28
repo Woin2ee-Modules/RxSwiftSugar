@@ -1,11 +1,11 @@
-import RxUtility
+import RxSwiftSugar
 
 import RxSwift
 import RxBlocking
 import RxTest
 import XCTest
 
-final class RxUtilityTests: XCTestCase {
+final class RxSwiftSugarTests: XCTestCase {
 
     var disposeBag: DisposeBag!
 

@@ -16,7 +16,7 @@ extension PrimitiveSequenceType where Trait == SingleTrait {
     }
 
     public func unwrapOrThrow<Result>() -> PrimitiveSequence<Trait, Result> where Element == Result? {
-        return self.map { try RxUtility.unwrapOrThrow($0) }
+        return self.map { try RxSwiftSugar.unwrapOrThrow($0) }
     }
 
 }

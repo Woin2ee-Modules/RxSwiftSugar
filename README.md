@@ -1,4 +1,4 @@
-# RxExtension
+# RxSwiftSugar
 
 This library supports convenient operators of RxSwift / RxCooca.
 
@@ -14,7 +14,7 @@ The list of supported operators is <a href="#supported-operators">here</a>.
 
 ```
 dependencies: [
-    .package(url: "https://github.com/Woin2ee-Modules/RxUtility.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/Woin2ee-Modules/RxSwiftSugar.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 

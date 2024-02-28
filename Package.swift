@@ -4,28 +4,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "RxUtility",
+    name: "RxSwiftSugar",
     products: [
         .library(
-            name: "RxUtility-Dynamic",
+            name: "RxSwiftSugar-Dynamic",
             type: .dynamic,
-            targets: ["RxUtility"])
+            targets: ["RxSwiftSugar"])
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.6.0")
     ],
     targets: [
         .target(
-            name: "RxUtility",
+            name: "RxSwiftSugar",
             dependencies: [
                 .product(name: "RxSwift", package: "RxSwift"),
                 .product(name: "RxCocoa", package: "RxSwift")
             ]
         ),
         .testTarget(
-            name: "RxUtilityTests",
+            name: "RxSwiftSugarTests",
             dependencies: [
-                "RxUtility",
+                "RxSwiftSugar",
                 .product(name: "RxTest", package: "RxSwift"),
                 .product(name: "RxBlocking", package: "RxSwift")
             ]
