@@ -24,3 +24,11 @@ extension SharedSequenceConvertibleType {
     }
 
 }
+
+extension SharedSequenceConvertibleType where Element: ExpressibleByNilLiteral {
+    
+    /// Unwraps elements and skips nil elements. Equivalent to apply `compactMap` operator without `transform`.
+    public func unwrapOrIgnore<Result>() -> SharedSequence<SharingStrategy, Result> where Element == Result? {
+        return self.compactMap { $0 }
+    }
+}
